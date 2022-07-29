@@ -1,0 +1,86 @@
+.testimonial {
+  position: relative;
+  padding: 6.8rem 0;
+  &-box {
+    background-color: rgba(#eee, 0.7);
+    width: 75%;
+    margin: 0 auto;
+    box-shadow: 0 3rem 6rem rgba($color-black, 0.1);
+    border-radius: 3px;
+    padding: 6rem;
+    padding-left: 9rem;
+    transform: skewX(-12deg);
+
+    @include response(tab-port) {
+      padding: 4rem;
+      padding-left: 7rem;
+    }
+    @include response(phone) {
+      transform: skewX(0deg);
+    }
+    & > * {
+      transform: skewX(12deg);
+      @include response(phone) {
+        transform: skewX(0deg);
+      }
+    }
+
+    &__image {
+      position: relative;
+      width: 15rem;
+      height: 15rem;
+      float: left;
+      shape-outside: circle(50% at 50% 50%);
+      clip-path: circle(50% at 50% 50%);
+      outline: 1px solid transparent;
+      transform: translateX(-3rem) skewX(12deg);
+      overflow: hidden;
+      @include response(phone) {
+        transform: skewX(0deg);
+        clip-path: circle(46% at 46% 46%);
+      }
+      img {
+        height: 100%;
+        transform: scale(1.4);
+        transition: all 1s;
+      }
+    }
+
+    &__caption {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      visibility: hidden;
+      pointer-events: none;
+      opacity: 0;
+      transform: translate(-50%, 20%);
+      font-size: 1.8rem;
+      color: $color-white;
+      text-transform: uppercase;
+      text-align: center;
+      transition: all 1s;
+    }
+    &:hover &__caption {
+      visibility: visible;
+      pointer-events: auto;
+      opacity: 1;
+      transform: translate(-50%, -50%);
+    }
+    &:hover &__image img {
+      @supports (filter: blur(3px) brightness(80%)) or
+        (-webkit-filter: blur(3px) brightness(80%)) {
+        filter: blur(3px) brightness(80%);
+        -webkit-filter: blur(3px) brightness(80%);
+      }
+      transform: translateX(-4rem) translateZ(0) scale(1.1);
+    }
+
+    @include response(phone) {
+      width: 60%;
+    }
+  }
+
+  &__btn {
+    text-align: center;
+  }
+}

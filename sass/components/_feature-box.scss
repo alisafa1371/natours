@@ -1,0 +1,43 @@
+.feature-box {
+  background-color: rgba($color-white, 0.8);
+  font-size: $default-font-size;
+  padding: 2.4rem;
+  text-align: center;
+  border-radius: 3px;
+  box-shadow: $shadow-large;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 1rem;
+  transition: all 0.3s;
+
+  &__icon {
+    font-size: 6rem;
+    @include text-gradient;
+    
+    @include response(phone){
+      font-size: 8rem;
+    }
+  }
+  &:hover {
+    transform: scale(1.05) translateY(-1.5rem);
+  }
+
+  @include response(tab-land){
+    padding: 2rem;
+  }
+  @include response(phone){
+    padding: 1.4rem;
+  }
+
+  &__text{
+    @include response(tab-port){
+      
+      margin-bottom: 2.4rem;
+    }
+    @include response(phone){
+      font-size: 1.8rem;
+      margin-bottom: 2.4rem;
+    }
+  }
+}

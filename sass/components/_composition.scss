@@ -1,0 +1,76 @@
+.composition {
+  position: relative;
+  left: 10%;
+  top: 10%;
+  @include response(tab-port) {
+    top: 0;
+    left: 0;
+  }
+
+  &__picture {
+    @include response(tab-port) {
+      display: flex;
+      justify-content: center;
+    }
+  }
+  &__photo {
+    width: 50%;
+    position: absolute;
+    box-shadow: $shadow-large;
+    transition: all 0.5s;
+    z-index: 10;
+    outline-offset: 2rem;
+
+    @include response(huge-screen) {
+      width: 40%;
+    }
+    @include response(tab-port) {
+      position: relative;
+      width: 18%;
+      box-shadow: $shadow-medium;
+    }
+    @include response(phone) {
+      width: 30%;
+    }
+
+    &--p1 {
+      top: -2rem;
+      left: 0;
+      @include response(tab-port) {
+        top: 0rem;
+        transform: scale(1.2);
+      }
+    }
+    &--p2 {
+      top: 2rem;
+      right: 0;
+      @include response(tab-port) {
+        top: -1rem;
+        transform: scale(1.3);
+        z-index: 80;
+      }
+      @include response(huge-screen) {
+        right: 11rem;
+      }
+    }
+    &--p3 {
+      top: 7rem;
+      left: 10rem;
+      @include response(tab-port) {
+        top: .5rem;
+        left: 0;
+        transform: scale(1.1);
+      }
+    }
+    &:hover {
+      transform: scale(1.1);
+      box-shadow: 0 2.5rem 4rem rgba($color-black, 0.5);
+      z-index: 20;
+      outline: 1.5rem solid $color-primary;
+    }
+  }
+  // .composition:hover .composition__photo:not(:hover)
+  &:hover &__photo:not(:hover) {
+    transform: scale(0.8);
+  }
+}

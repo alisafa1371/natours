@@ -1,0 +1,159 @@
+.section-about {
+  background-color: $color-gray-light-1;
+  padding: 15rem 0;
+  margin-top: -20vh;
+
+  @include response(huge-screen) {
+    padding: 25rem 0;
+    margin-top: -25vh;
+  }
+
+  @include response(small-phone) {
+    padding: 20rem 0;
+    margin-top: -15vh;
+  }
+
+  &__box {
+    max-width: 70%;
+    margin: 0 auto;
+    @include response(huge-screen) {
+      gap: 6rem;
+      grid-template-columns: repeat(auto-fit, minmax(50rem, 1fr));
+    }
+    @include response(tab-port) {
+      grid-template-columns: repeat(auto-fit, minmax(43rem, 1fr));
+    }
+  }
+  @media (min-height: 550px) {
+    margin-top: -13vh;
+  }
+  @media (min-height: 900px) {
+    margin-top: -9vh;
+  }
+}
+
+.feature-section {
+  padding: 20rem 0;
+  background: $green-gradient, url(../../img/nat-4.jpg);
+  background-size: cover;
+  background-position: top;
+  transform: skewY(-7deg);
+  margin-top: -9rem;
+  & > * {
+    transform: skewY(7deg);
+  }
+
+  @include response(tab-port) {
+    padding: 15rem 0;
+  }
+  @include response(phone) {
+    padding: 10rem 0;
+  }
+}
+
+.section-tours {
+  background-color: $color-gray-light-1;
+  padding: 25rem 0 15rem 0;
+  margin-top: -9rem;
+  &__box {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(20rem, 1fr));
+    gap: 6rem;
+    width: 85%;
+    margin: 0 auto;
+    @include response(tab-land) {
+      width: 90%;
+    }
+    @include response(tab-port) {
+      gap: 3.6rem;
+      grid-template-columns: repeat(auto-fit, minmax(40rem, 1fr));
+      width: 50%;
+    }
+    @include response(phone) {
+      grid-template-columns: repeat(auto-fit, minmax(32rem, 1fr));
+      width: 55%;
+      gap: 6.4rem;
+    }
+  }
+  &__button {
+    margin-top: 6rem;
+    @include response(phone) {
+      margin-top: 8rem;
+    }
+  }
+
+  @include response(tab-port) {
+    padding: 20rem 0 10rem 0;
+  }
+}
+
+.section-book {
+  background: linear-gradient(
+    135deg,
+    hsla(116, 73%, 44%, 1) 0%,
+    hsla(113, 72%, 39%, 1) 20%,
+    hsla(112, 56%, 42%, 1) 40%,
+    hsla(110, 48%, 33%, 1) 68%,
+    hsla(107, 48%, 19%, 1) 86%,
+    hsla(101, 46%, 8%, 1) 100%
+  );
+  padding: 15rem 0;
+
+  @include response(tab-port) {
+    padding: 10rem 0;
+  }
+}
+
+.book {
+  // display: grid;
+  // grid-template-columns: 1fr;
+  max-width: 80%;
+  margin: 0 auto;
+  background-image: linear-gradient(
+      105deg,
+      rgba($color-white, 0.9) 0%,
+      rgba($color-white, 0.9) 50%,
+      transparent 50%
+    ),
+    url(../img/nat-10.jpg);
+  background-size: cover;
+  background-position: center;
+  border-radius: 3px;
+  box-shadow: $shadow-large;
+
+  @include response(tab-land) {
+    background-image: linear-gradient(
+        105deg,
+        rgba($color-white, 0.9) 0%,
+        rgba($color-white, 0.9) 55%,
+        transparent 50%
+      ),
+      url(../img/nat-10.jpg);
+  }
+  @include response(phone) {
+    background-image: linear-gradient(
+        105deg,
+        rgba($color-white, 0.9) 0%,
+        rgba($color-white, 0.9) 65%,
+        transparent 50%
+      ),
+      url(../img/nat-10.jpg);
+  }
+
+  &__form {
+    width: 50%;
+    padding: 5.2rem;
+    display: flex;
+    flex-direction: column;
+
+    @include response(tab-land) {
+      padding: 4rem;
+    }
+    @include response(tab-port) {
+      padding: 3.2rem;
+    }
+    @include response(phone) {
+      width: 65%;
+    }
+  }
+}

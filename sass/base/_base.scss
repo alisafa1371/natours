@@ -1,0 +1,48 @@
+*,
+*::after,
+*::before {
+  margin: 0;
+  padding: 0;
+  box-sizing: inherit;
+}
+
+html {
+  // This defines 1rem
+  overflow-x: hidden;
+  font-size: 62.5%;
+
+  @include response(huge-screen) {
+    font-size: 80%;
+  }
+  @include response(big-screen) {
+    font-size: 70%;
+  }
+
+  @include response(tab-land) {
+    // 1rem = 9px    56.25%
+    font-size: 56.25%;
+  }
+  @include response(tab-port) {
+    // 1rem = 8px  8/16 = 50%
+    font-size: 50%;
+  }
+  @include response(small-phone) {
+    // 1rem = 8px  8/16 = 50%
+    font-size: 37.5%;
+  }
+  scroll-behavior: smooth;
+}
+
+body {
+  box-sizing: border-box;
+  overflow-x: hidden;
+  padding: 3rem;
+  @include response(tab-port) {
+    padding: 0;
+  }
+}
+
+::selection {
+  background-color: $color-primary;
+  color: $color-white;
+}

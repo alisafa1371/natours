@@ -1,0 +1,208 @@
+.card {
+  // FUNCTIONALITY
+
+  perspective: 150rem;
+  position: relative;
+
+  &__side {
+    box-shadow: $shadow-large;
+    border-radius: 1rem;
+    transition: all 1s ease;
+    width: 100%;
+    overflow: hidden;
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+    @include flex-display;
+
+    &--back {
+      transform: rotateY(180deg);
+      position: absolute;
+      top: 0;
+      left: 0;
+      height: 100%;
+    }
+  }
+
+  &__cta {
+    @include flex-display;
+    &__text {
+      font-size: 1.4rem;
+      text-transform: uppercase;
+    }
+    &__price {
+      font-size: 6rem;
+      font-weight: 300;
+    }
+  }
+  &:hover &__side--front {
+    transform: rotateY(-180deg);
+  }
+  &:hover &__side--back {
+    transform: rotateY(0);
+    color: $color-white;
+    // .card__side--back-1
+    &-1 {
+      background: $orange-gradient;
+    }
+    &-2 {
+      background: $green-gradient;
+    }
+    &-3 {
+      background: $blue-gradient;
+    }
+  }
+
+  // FRONT SIDE STYLING
+  &__list {
+    @include flex-display;
+    list-style: none;
+    width: 80%;
+    @include response(tab-port) {
+      width: 90%;
+    }
+    &__item {
+      width: 80%;
+      text-align: center;
+      font-size: 1.6rem;
+      padding: 1rem;
+      &:not(:last-child) {
+        border-bottom: 1px solid #eee;
+      }
+      @include response(huge-screen) {
+        font-size: 2.4rem;
+      }
+      @include response(tab-land) {
+        width: 100%;
+      }
+    }
+  }
+  &__picture {
+    background-size: cover;
+    background-position: bottom;
+    background-blend-mode: color;
+    width: 100%;
+    height: 23rem;
+    position: relative;
+    clip-path: polygon(0 0, 100% 0, 100% 85%, 0 100%);
+    border-top-left-radius: 3px;
+    border-top-right-radius: 3px;
+    z-index: -1;
+
+    &--1 {
+      background-image: linear-gradient(
+          to right bottom,
+          $color-orange,
+          $color-orange-dark
+        ),
+        url(../img/nat-5.jpg);
+    }
+    &--2 {
+      background-image: linear-gradient(
+          to right bottom,
+          $color-primary,
+          $color-primary-dark
+        ),
+        url(../img/nat-6.jpg);
+    }
+    &--3 {
+      background-image: linear-gradient(
+          to right bottom,
+          $color-blue,
+          $color-blue-dark
+        ),
+        url(../img/nat-7.jpg);
+    }
+
+    @include response(huge-screen) {
+      height: 30rem;
+    }
+  }
+
+  &__heading {
+    font-size: 2.8rem;
+    font-weight: 300;
+    text-transform: uppercase;
+    text-align: right;
+    color: $color-white;
+    position: absolute;
+    top: 12rem;
+    right: 2rem;
+    width: 55%;
+
+    @include response(huge-screen) {
+      font-size: 3.6rem;
+    }
+    @include response(tab-port) {
+      font-size: 2rem;
+    }
+  }
+
+  &__heading-span {
+    padding: 1rem 1.5rem;
+    box-decoration-break: clone;
+    -webkit-box-decoration-break: clone;
+    &--1 {
+      background: linear-gradient(
+        to right bottom,
+        rgba($color-orange, 0.85),
+        rgba($color-orange-dark, 0.85)
+      );
+    }
+    &--2 {
+      background: linear-gradient(
+        to right bottom,
+        rgba($color-primary, 0.85),
+        rgba($color-primary-dark, 0.85)
+      );
+    }
+    &--3 {
+      background: linear-gradient(
+        to right bottom,
+        rgba($color-blue, 0.85),
+        rgba($color-blue-dark, 0.85)
+      );
+    }
+  }
+
+  @media only screen and (max-width: 56.25em),
+         only screen and (hover:none) {
+    border-radius: 3px;
+    box-shadow: $shadow-medium;
+    &__side {
+      position: relative;
+      box-shadow: none;
+      &--back {
+        transform: rotateY(0);
+        position: relative;
+        top: 0;
+        left: 0;
+        height: auto;
+        padding: 7rem 4rem 4rem 4rem;
+        color: $color-white;
+        clip-path: polygon(0 20%, 100% 0, 100% 100%, 0 100%);
+        border-radius: 0;
+        border-bottom-left-radius: 3px;
+        border-bottom-right-radius: 3px;
+        &-1{
+        background: $orange-gradient;
+        }
+        &-2{
+        background: $green-gradient;
+        }
+        &-3{
+        background: $blue-gradient;
+        }
+      }
+    }
+    &:hover &__side--front {
+      transform: rotateY(0);
+    }
+
+    &__cta {
+      &__price {
+        margin-bottom: 3rem;
+        font-size: 4rem;
+      }
+    }
+  }
+}

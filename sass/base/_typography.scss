@@ -1,0 +1,96 @@
+/* TYPOGRAPHY SYSTEM
+
+- Font sizes (px)
+10 / 12 / 14 / 16 / 18 / 20 / 24 / 30 / 36 / 44 / 52 / 62 / 74 / 86 / 98
+
+- Spacing system (px)
+2 / 4 / 8 / 12 / 16 / 24 / 32 / 48 / 64 / 80 / 96 / 128 */
+
+body {
+  font-family: "Lato", sans-serif;
+  font-weight: 400;
+  line-height: 1.7;
+  color: $color-gray-dark;
+}
+.heading-primary {
+  color: $color-white;
+  text-transform: uppercase;
+  //  for fixing shakes if happens
+  // backface-visibility: hidden;
+  margin-bottom: 2rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  &--main {
+    animation: MoveInLeft 1s ease-out;
+    display: block;
+    font-size: 6rem;
+    font-weight: 400;
+    letter-spacing: 3.5rem;
+
+    @include response(huge-screen) {
+      font-size: 8.2rem;
+    }
+    @include response(phone) {
+      font-size: 5rem;
+      letter-spacing: 1rem;
+    }
+    @include response(small-phone) {
+      font-size: 4rem;
+    }
+  }
+  &--sub {
+    animation: MoveInRight 1s ease-out;
+    display: block;
+    font-size: 2rem;
+    font-weight: 700;
+    letter-spacing: 1.75rem;
+    @include response(phone) {
+      letter-spacing: 0.5rem;
+    }
+  }
+}
+.heading-secondary {
+  font-size: 3.6rem;
+  font-weight: 700;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  display: inline-block;
+
+  @include text-gradient;
+  transition: all 0.5s;
+
+  @include response(tab-port) {
+    font-size: 3rem;
+  }
+  @include response(phone) {
+    font-size: 2.5rem;
+  }
+  @include response(small-phone) {
+    font-size: 1.8rem;
+  }
+
+  &:hover {
+    cursor: pointer;
+    transform: skewY(2deg) skewX(15deg) scale(1.1);
+    text-shadow: 0.5rem 1rem 2rem rgba($color-black, 0.2);
+  }
+}
+
+.heading-tertiary {
+  font-size: $default-font-size;
+  font-weight: 700;
+  text-transform: uppercase;
+  @include response(phone) {
+    font-size: 2rem;
+  }
+}
+
+.paragraph {
+  font-size: $default-font-size;
+  &:not(:last-child) {
+    margin-bottom: 3rem;
+  }
+}

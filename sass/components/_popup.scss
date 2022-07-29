@@ -1,0 +1,127 @@
+.popup {
+  height: 100vh;
+  width: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  background-color: rgba(0, 0, 0, 0.916);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 999999;
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  transition: all 0.6s;
+
+  @supports (backdrop-filter: blur(10px)) or (-webkit-backdrop-filter: blur(10px)){
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    background-color: rgba(0, 0, 0, 0.316);
+  }
+
+  &:target {
+    opacity: 1;
+    visibility: visible;
+    pointer-events: auto;
+  }
+
+  &__content {
+    width: 0;
+    background-color: $color-white;
+    box-shadow: 0 2rem 4rem rgba($color-black, 0.2);
+    border-radius: 3px;
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    overflow: hidden;
+    transition: width 0.8s 0.4s ease-in-out;
+
+    @include response(tab-port) {
+      grid-template-columns: 1fr;
+    }
+  }
+  &__images {
+    display: grid;
+    grid-template-rows: 1fr;
+    align-items: stretch;
+    img {
+      width: 100%;
+    }
+    @include response(tab-port) {
+      grid-row: 2;
+      grid-template-columns: 1fr 1fr;
+    }
+  }
+  &__details {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 3rem 5rem;
+    position: relative;
+  }
+  &__paraghraphs {
+    // display: grid;
+    // grid-template-columns: repeat(auto-fit, minmax(20rem, 1fr));
+    // gap: 4rem;
+    font-size: 1.4rem;
+    column-count: 2;
+    column-gap: 4rem;
+    column-rule: 1px solid $color-gray-light-1;
+    hyphens: auto;
+    -webkit-hyphens: auto;
+
+    @include response(huge-screen) {
+      font-size: 2.4rem;
+      margin-top: 1.4rem;
+    }
+
+    @include response(big-screen) {
+      font-size: 2rem;
+      margin-top: 1.4rem;
+    }
+
+    @include response(huge-screen) {
+      font-size: 2.4rem;
+      margin-top: 1.4rem;
+    }
+  }
+  &__btn {
+    align-self: flex-start !important;
+  }
+
+  &:target &__content {
+    width: 85%;
+  }
+
+  &__close {
+    &:link,
+    &:visited {
+      color: $color-gray-darkest;
+      font-size: 3rem;
+      line-height: 1;
+      text-decoration: none;
+      position: absolute;
+      top: 1.8rem;
+      right: 3rem;
+      transition: all 0.2s;
+
+      @include response(huge-screen) {
+        top: 9rem;
+        right: 9rem;
+        font-size: 6rem;
+      }
+      @include response(big-screen) {
+        top: 3rem;
+        right: 4rem;
+        font-size: 4.4rem;
+      }
+    }
+    &:hover {
+      transform: scale(1.5);
+      color: $color-primary;
+    }
+    &:active {
+      transform: scale(0.8);
+    }
+  }
+}
